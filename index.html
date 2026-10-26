@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Talal Ali Khan — Integration, Telecom VAS, Fintech Platform Operations and DevOps portfolio." />
+<title>Talal Ali Khan | Integration & Platform Operations</title>
+<style>
+:root {
+  color-scheme: light;
+  --site-primary: #123d4a;
+  --site-on-primary: #ffffff;
+  --site-secondary: #d5a85b;
+  --site-on-secondary: #17262c;
+  --site-background: #f4f6f5;
+  --site-on-background: #18282d;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  --surface: #ffffff;
+  --surface-alt: #eaf0ef;
+  --muted: #52656a;
+  --border: #d9e2e0;
+  --accent: #d5a85b;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); line-height: 1.65; }
+#app { width: 100%; min-height: 100vh; background-color: var(--site-background); color: var(--site-on-background); border-radius: 0; overflow: hidden; }
+a { color: inherit; }
+.container { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
+header { background: var(--site-primary); color: var(--site-on-primary); position: relative; overflow: hidden; }
+header::after { content: ""; position: absolute; width: 440px; height: 440px; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; right: -120px; top: -230px; box-shadow: 0 0 0 48px rgba(255,255,255,.035), 0 0 0 96px rgba(255,255,255,.025); opacity: var(--site-decoration-opacity); pointer-events: none; }
+nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: calc(22px * var(--site-spacing-scale)) 0; position: relative; z-index: 1; }
+.brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.05rem; }
+.brand span { color: var(--site-secondary); }
+.navlinks { display: flex; flex-wrap: wrap; gap: 22px; font-size: .9rem; color: rgba(255,255,255,.82); }
+.navlinks a { text-decoration: none; }
+.navlinks a:hover { color: var(--site-secondary); }
+.hero { display: grid; grid-template-columns: 1.45fr .75fr; gap: 54px; align-items: center; padding: calc(76px * var(--site-spacing-scale)) 0 calc(88px * var(--site-spacing-scale)); position: relative; z-index: 1; }
+.eyebrow { color: var(--site-secondary); text-transform: uppercase; letter-spacing: .16em; font-size: .76rem; font-weight: 800; }
+h1, h2, h3 { font-family: var(--site-font-heading); line-height: 1.15; letter-spacing: -.04em; }
+h1 { font-size: calc(clamp(2.5rem, 6vw, 4.8rem) * var(--site-heading-scale)); margin: 16px 0 20px; }
+.hero p { max-width: 700px; font-size: 1.08rem; color: rgba(255,255,255,.82); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 18px; border-radius: calc(9px * var(--site-radius-scale)); font-weight: 750; text-decoration: none; border: 1px solid transparent; transition: transform .2s, opacity .2s; }
+.button:hover { transform: translateY(-2px); }
+.button.primary { background: var(--site-secondary); color: var(--site-on-secondary); }
+.button.ghost { border-color: rgba(255,255,255,.35); color: white; }
+.hero-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: calc(20px * var(--site-radius-scale)); padding: 28px; backdrop-filter: blur(8px); }
+.hero-card .initials { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 18px; background: var(--site-secondary); color: var(--site-on-secondary); font-size: 1.5rem; font-weight: 900; margin-bottom: 20px; }
+.hero-card h3 { margin: 0 0 8px; font-size: 1.25rem; }
+.hero-card p { font-size: .94rem; margin: 0; }
+.quick-facts { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 26px; }
+.fact { border-top: 1px solid rgba(255,255,255,.24); padding-top: 13px; }
+.fact strong { display: block; color: white; font-size: 1.1rem; }
+.fact span { font-size: .78rem; color: rgba(255,255,255,.68); }
+section { padding: calc(76px * var(--site-spacing-scale)) 0; }
+.section-head { max-width: 700px; margin-bottom: 34px; }
+.section-head .eyebrow { color: #8a6425; }
+h2 { font-size: calc(clamp(2rem, 4vw, 3rem) * var(--site-heading-scale)); margin: 10px 0 14px; }
+.section-head p { color: var(--muted); margin: 0; }
+.grid { display: grid; gap: 18px; }
+.grid.three { grid-template-columns: repeat(3,1fr); }
+.grid.two { grid-template-columns: repeat(2,1fr); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: calc(15px * var(--site-radius-scale)); padding: 24px; }
+.card h3 { font-size: 1.16rem; margin: 0 0 10px; }
+.card p { margin: 0; color: var(--muted); }
+.icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 18px; background: var(--surface-alt); color: var(--site-primary); font-size: 1.2rem; font-weight: 800; }
+.skills { background: var(--surface-alt); }
+.skill-group { margin-bottom: 18px; }
+.skill-group:last-child { margin-bottom: 0; }
+.skill-group h3 { font-size: 1rem; margin: 0 0 12px; letter-spacing: -.01em; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { display: inline-block; border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 6px 11px; font-size: .84rem; color: var(--site-on-background); }
+.experience { position: relative; padding-left: 26px; border-left: 2px solid var(--border); }
+.experience-item { position: relative; padding: 0 0 30px; }
+.experience-item:last-child { padding-bottom: 0; }
+.experience-item::before { content: ""; width: 12px; height: 12px; background: var(--site-secondary); border: 3px solid var(--site-background); border-radius: 50%; position: absolute; left: -33px; top: 5px; }
+.experience-meta { color: var(--muted); font-size: .9rem; margin-bottom: 9px; }
+.experience-item h3 { margin: 0 0 5px; font-size: 1.25rem; }
+.experience-item ul { margin: 12px 0 0; padding-left: 20px; color: var(--muted); }
+.experience-item li { margin: 7px 0; }
+.project-card { display: flex; flex-direction: column; gap: 14px; }
+.project-card .label { color: #8a6425; text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; font-weight: 800; }
+.project-card h3 { margin: 0; }
+.project-card p { flex: 1; }
+.disclaimer { font-size: .83rem; color: var(--muted); margin-top: 18px; }
+.education-line { display: flex; justify-content: space-between; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+.education-line:last-child { border-bottom: 0; }
+.education-line h3 { font-size: 1rem; margin: 0 0 4px; letter-spacing: -.01em; }
+.education-line p { margin: 0; color: var(--muted); }
+.education-line span { color: var(--muted); white-space: nowrap; }
+.contact { background: var(--site-primary); color: var(--site-on-primary); }
+.contact .section-head .eyebrow { color: var(--site-secondary); }
+.contact .section-head p { color: rgba(255,255,255,.76); }
+.contact-panel { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: 26px; border: 1px solid rgba(255,255,255,.2); border-radius: calc(16px * var(--site-radius-scale)); background: rgba(255,255,255,.06); }
+.contact-panel p { margin: 4px 0; color: rgba(255,255,255,.8); }
+.contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-links a { text-decoration: none; }
+footer { padding: 24px 0; background: var(--site-primary); color: rgba(255,255,255,.65); border-top: 1px solid rgba(255,255,255,.14); font-size: .84rem; }
+footer .container { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+@media (max-width: 780px) { .hero { grid-template-columns: 1fr; gap: 30px; padding: 52px 0 64px; } .hero-card { max-width: 520px; } .grid.three { grid-template-columns: 1fr; } .grid.two { grid-template-columns: 1fr; } .navlinks { gap: 12px; font-size: .82rem; } .quick-facts { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 480px) { .container { width: min(100% - 30px, 1120px); } nav { align-items: flex-start; flex-direction: column; } .quick-facts { grid-template-columns: 1fr; } .education-line { flex-direction: column; gap: 4px; } }
+</style>
+</head>
+<body>
+<div id="app">
+<header id="top">
+  <div class="container">
+    <nav aria-label="Main navigation">
+      <div class="brand">TALAL <span>ALI KHAN</span></div>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#experience">Experience</a><a href="#work">Selected Work</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Fintech · Telecom VAS · Platform Operations</div>
+        <h1>Keeping critical digital services reliable.</h1>
+        <p>Integration &amp; Platform Operations Engineer with 6+ years of experience supporting mission-critical telecom and fintech services—from API and middleware troubleshooting to production incidents, release support, and service reliability.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#experience">Explore experience <span aria-hidden="true">↘</span></a>
+          <a class="button ghost" href="mailto:talal.ali42@yahoo.com?subject=Professional%20Opportunity">Contact me</a>
+        </div>
+        <div class="quick-facts">
+          <div class="fact"><strong>6+ years</strong><span>Production operations</span></div>
+          <div class="fact"><strong>Fintech + Telecom</strong><span>Domain experience</span></div>
+          <div class="fact"><strong>L2 / Incident</strong><span>Support &amp; RCA</span></div>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="initials">TAK</div>
+        <h3>Integration &amp; API Platform Operations</h3>
+        <p>Focused on API integrations, enterprise middleware, production reliability, monitoring, and coordinated incident resolution.</p>
+        <div class="tags" style="margin-top:18px"><span class="tag">Linux</span><span class="tag">IBM App Connect</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">Argo CD</span></div>
+      </aside>
+    </div>
+  </div>
+</header>
+<main>
+<section id="about">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Profile</div><h2>Operations-first. Integration-minded. Reliability-focused.</h2><p>I work across application, middleware, database, infrastructure, and partner boundaries to investigate service issues and help restore reliable production operations.</p></div>
+    <div class="grid three">
+      <article class="card"><div class="icon">↔</div><h3>Integration operations</h3><p>REST/SOAP APIs, JSON/XML payloads, authentication validation, IBM App Connect flows, and downstream connectivity troubleshooting.</p></article>
+      <article class="card"><div class="icon">⌁</div><h3>Production reliability</h3><p>Incident response, log and transaction analysis, root cause investigation, service restoration, release validation, and SLA awareness.</p></article>
+      <article class="card"><div class="icon">▤</div><h3>Platform &amp; delivery</h3><p>Linux, containerized application environments, Kubernetes workload checks, CI/CD deployment workflows, and monitoring.</p></article>
+    </div>
+  </div>
+</section>
+<section id="expertise" class="skills">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Technical toolkit</div><h2>Skills I use to support live services.</h2><p>A practical operations skill set spanning middleware, integrations, platform support, and release processes.</p></div>
+    <div class="grid two">
+      <div class="card">
+        <div class="skill-group"><h3>Middleware &amp; API integration</h3><div class="tags"><span class="tag">IBM App Connect</span><span class="tag">REST / SOAP</span><span class="tag">JSON / XML</span><span class="tag">OAuth2</span><span class="tag">RSA-based authentication</span><span class="tag">API troubleshooting</span></div></div>
+        <div class="skill-group"><h3>Production operations</h3><div class="tags"><span class="tag">Incident management</span><span class="tag">RCA</span><span class="tag">L2 support</span><span class="tag">Change / release support</span><span class="tag">SLA monitoring</span><span class="tag">Service restoration</span></div></div>
+        <div class="skill-group"><h3>Monitoring &amp; observability</h3><div class="tags"><span class="tag">ELK Stack</span><span class="tag">Elasticsearch</span><span class="tag">Kibana</span><span class="tag">Grafana</span><span class="tag">Metabase</span><span class="tag">Log analysis</span></div></div>
+      </div>
+      <div class="card">
+        <div class="skill-group"><h3>Platforms &amp; infrastructure</h3><div class="tags"><span class="tag">Linux / RHEL</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">TCP/IP</span><span class="tag">DNS</span><span class="tag">Connectivity troubleshooting</span></div></div>
+        <div class="skill-group"><h3>CI/CD &amp; automation</h3><div class="tags"><span class="tag">Jenkins</span><span class="tag">Argo CD</span><span class="tag">Git</span><span class="tag">Helm</span><span class="tag">Bash / Shell</span><span class="tag">Ansible</span></div></div>
+        <div class="skill-group"><h3>Data &amp; telecom protocols</h3><div class="tags"><span class="tag">Oracle</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">SQL analysis</span><span class="tag">SMPP</span><span class="tag">USSD</span><span class="tag">HTTP/S</span><span class="tag">FTP</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="experience">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Career timeline</div><h2>Experience across fintech and telecom.</h2><p>Roles supporting production platforms, integrations, and services where availability and incident response matter.</p></div>
+    <div class="experience">
+      <article class="experience-item">
+        <div class="experience-meta">Nov 2025 – Present · Islamabad, Pakistan</div>
+        <h3>Manager, Integration Operations</h3><div class="experience-meta">AXA Biztech / EasyPaisa</div>
+        <ul><li>Support enterprise payment integrations and production operations for digital wallet, merchant, and payment services.</li><li>Work with IBM App Connect, REST/SOAP APIs, JSON/XML payloads, OAuth2, and RSA-based authentication.</li><li>Investigate transaction and integration incidents using logs, transaction tracing, SQL, and monitoring tools; coordinate RCA and service restoration.</li><li>Support Kubernetes-based environments and release workflows involving Jenkins, Git, Helm, and Argo CD, including post-deployment health checks.</li></ul>
+      </article>
+      <article class="experience-item">
+        <div class="experience-meta">Feb 2020 – Nov 2025 · Pakistan</div>
+        <h3>VAS Service Lifecycle Management Engineer</h3><div class="experience-meta">Nokia Pakistan · Telenor Project</div>
+        <ul><li>Delivered L1/L2 production operations and incident support for high-availability telecom VAS platforms with strict SLA requirements.</li><li>Supported SMSC, USSD, Ring Back Tone, and digital messaging services, including health checks, troubleshooting, preventive maintenance, and restoration.</li><li>Investigated application, connectivity, and messaging issues using Linux tools, logs, protocol tracing, and SQL analysis.</li><li>Supported REST, SOAP, SMPP, HTTP/HTTPS, FTP, and telecom signaling technologies; used ELK and Grafana for log analysis and KPI visibility.</li><li>Developed Bash automation scripts and supported Kubernetes workloads, deployments, health checks, maintenance windows, and production releases.</li></ul>
+      </article>
+      <article class="experience-item">
+        <div class="experience-meta">Aug 2017 – Feb 2018 · Pakistan</div>
+        <h3>Trainee Engineer – Project Management</h3><div class="experience-meta">PSCA / Huawei</div>
+        <ul><li>Assisted with project scheduling, progress tracking, reporting, and coordination between technical and operational stakeholders.</li></ul>
+      </article>
+      <article class="experience-item">
+        <div class="experience-meta">Aug 2016 – Aug 2017 · Pakistan</div>
+        <h3>Drive Test Engineer</h3><div class="experience-meta">China Communication Services</div>
+        <ul><li>Conducted 2G/3G/4G drive testing and network performance analysis, prepared RF reports, and identified improvement areas.</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="work" class="skills">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Selected work themes</div><h2>How I approach operational challenges.</h2><p>Representative work areas based on my professional responsibilities. These are experience summaries, not claims of independently built products or public repositories.</p></div>
+    <div class="grid three">
+      <article class="card project-card"><div class="label">01 · Integration</div><h3>Payment API troubleshooting</h3><p>Investigate integration failures by reviewing request/response behavior, authentication, payload structure, logs, transaction traces, SQL results, and downstream service connectivity.</p><div class="tags"><span class="tag">REST/SOAP</span><span class="tag">JSON/XML</span><span class="tag">SQL</span><span class="tag">IBM App Connect</span></div></article>
+      <article class="card project-card"><div class="label">02 · Reliability</div><h3>Production incident response</h3><p>Support incident triage and recovery across application, middleware, database, and network boundaries; coordinate stakeholders, document findings, and contribute to RCA.</p><div class="tags"><span class="tag">Linux</span><span class="tag">Logs</span><span class="tag">RCA</span><span class="tag">ELK / Grafana</span></div></article>
+      <article class="card project-card"><div class="label">03 · Delivery</div><h3>Release and platform operations</h3><p>Support Kubernetes workloads and CI/CD release processes through deployment validation, health checks, post-release monitoring, and coordination with engineering teams.</p><div class="tags"><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">Argo CD</span><span class="tag">Helm</span></div></article>
+    </div>
+    <p class="disclaimer">Confidentiality note: No customer data, credentials, private endpoints, internal architecture diagrams, or confidential employer materials are published here.</p>
+  </div>
+</section>
+<section id="education">
+  <div class="container">
+    <div class="grid two">
+      <div><div class="section-head"><div class="eyebrow">Education</div><h2>Engineering foundation.</h2><p>Academic training in telecommunications and electrical engineering.</p></div>
+        <div class="card"><div class="education-line"><div><h3>M.S. Electrical Engineering – Telecom Systems</h3><p>COMSATS University, Pakistan</p></div><span>2021</span></div><div class="education-line"><div><h3>B.Eng. Telecommunications Engineering</h3><p>Lancaster University, United Kingdom</p></div><span>2016</span></div></div>
+      </div>
+      <div><div class="section-head"><div class="eyebrow">Certifications</div><h2>Professional credentials.</h2></div><div class="card"><div class="education-line"><div><h3>Red Hat Certified System Administrator</h3><p>RHCSA</p></div></div><div class="education-line"><div><h3>NEBOSH International General Certificate</h3><p>IGC</p></div></div></div></div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Contact</div><h2>Let’s discuss your platform or operations needs.</h2><p>Open to relevant opportunities in integration operations, fintech production support, telecom VAS, platform operations, and DevOps.</p></div>
+    <div class="contact-panel"><div><h3 style="margin:0">Talal Ali Khan</h3><p>Islamabad, Pakistan · Open to relocation for the right opportunity</p><p><a href="mailto:talal.ali42@yahoo.com">talal.ali42@yahoo.com</a> · +92 336 6792123</p></div><div class="contact-links"><a class="button primary" href="mailto:talal.ali42@yahoo.com?subject=Professional%20Opportunity">Email me</a><a class="button ghost" href="https://www.linkedin.com/in/talal-ali-407500ba" target="_blank" rel="noopener">LinkedIn profile ↗</a></div></div>
+  </div>
+</section>
+</main>
+<footer><div class="container"><span>© <span id="year">2026</span> Talal Ali Khan</span><span>Integration · Telecom VAS · Fintech · Platform Operations</span></div></footer>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
